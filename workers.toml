@@ -1,0 +1,41 @@
+# toy-edge-worker のテナント設定サンプル
+# 検証: curl -H "Host: hello.localhost" http://127.0.0.1:8787/
+#       curl http://127.0.0.1:8787/echo/x
+
+[server]
+listen = "127.0.0.1:8787"
+worker_threads = 4
+
+[limits]
+cpu_ms = 50
+heap_mb = 64
+isolates_max = 16
+wall_timeout_ms = 10000
+
+[[workers]]
+name = "hello"
+script = "examples/workers/hello.js"
+route = { host = "hello.localhost" }
+env = { GREETING = "hi" }
+
+[[workers]]
+name = "echo"
+script = "examples/workers/echo.js"
+route = { path = "/echo" }
+
+[[workers]]
+name = "proxy"
+script = "examples/workers/proxy.js"
+route = { path = "/proxy" }
+env = { TARGET = "https://example.com/" }
+
+# リソース制限のデモ用
+[[workers]]
+name = "loop"
+script = "examples/workers/loop.js"
+route = { path = "/loop" }
+
+[[workers]]
+name = "membomb"
+script = "examples/workers/membomb.js"
+route = { path = "/membomb" }

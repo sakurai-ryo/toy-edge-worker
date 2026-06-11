@@ -1,0 +1,11 @@
+[package]
+name = "runtime"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+v8.workspace = true
+tokio.workspace = true
+reqwest.workspace = true
+protocol = { path = "../protocol" }

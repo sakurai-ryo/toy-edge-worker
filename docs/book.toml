@@ -1,0 +1,22 @@
+[book]
+title = "toy-edge-worker — V8 Isolate で作る最小 Cloudflare Workers"
+authors = ["sakurai-ryo"]
+language = "ja"
+src = "book"
+
+[build]
+# src(docs/book) と衝突しないよう出力先を分ける（docs/out）。
+build-dir = "out"
+
+[output.html]
+default-theme = "rust"
+preferred-dark-theme = "ayu"
+git-repository-url = "https://github.com/sakurai-ryo/toy-edge-worker"
+edit-url-template = "https://github.com/sakurai-ryo/toy-edge-worker/edit/main/docs/book/{path}"
+
+[output.html.fold]
+enable = true
+level = 1
+
+[output.html.search]
+enable = true

@@ -1,0 +1,21 @@
+[package]
+name = "edged"
+version.workspace = true
+edition.workspace = true
+
+[[bin]]
+name = "tew"
+path = "src/main.rs"
+
+[dependencies]
+anyhow.workspace = true
+clap.workspace = true
+tokio.workspace = true
+hyper.workspace = true
+hyper-util.workspace = true
+http-body-util.workspace = true
+serde_json.workspace = true
+runtime = { path = "../runtime" }
+protocol = { path = "../protocol" }
+router = { path = "../router" }
+pool = { path = "../pool" }
